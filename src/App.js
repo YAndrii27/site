@@ -61,9 +61,11 @@ Nec ullamcorper sit amet risus. Molestie ac feugiat sed lectus vestibulum mattis
 }
 
 export function WrapProjects() {
-  <QueryClientProvider client={queryClient}>
-    <Projects />
-  </QueryClientProvider>
+  return (
+    <QueryClientProvider client={queryClient}>
+      <Projects />
+    </QueryClientProvider>
+  )
 }
 
 function Projects() {
