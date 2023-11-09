@@ -70,7 +70,7 @@ function Projects() {
   const { isPending, error, data } = useQuery({
     queryKey: ['repoData'],
     queryFn: () =>
-      fetch("https://api.github.com/users/{YAndrii27}/repos").then(
+      fetch("https://api.github.com/users/YAndrii27/repos").then(
         (res) => res.json(),
       ),
   })
