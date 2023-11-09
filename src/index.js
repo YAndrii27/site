@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 
 import './index.css';
-import App from './App';
+import App, {WrapProjects} from './App';
 import reportWebVitals from './reportWebVitals';
 
 const router = createBrowserRouter([
@@ -14,6 +14,10 @@ const router = createBrowserRouter([
     path: "/",
     element: <App />,
   },
+  {
+    path: "/projects",
+    element: <WrapProjects />
+  }
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

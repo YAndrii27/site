@@ -1,12 +1,12 @@
 import React from 'react';
-// import {
-//   QueryClient,
-//   QueryClientProvider,
-//   useQuery,
-// } from '@tanstack/react-query'
+import {
+  QueryClient,
+  QueryClientProvider,
+  useQuery,
+} from '@tanstack/react-query'
 import './App.css';
 
-// const queryClient = new QueryClient()
+const queryClient = new QueryClient()
 
 
 export default function App() {
@@ -60,21 +60,27 @@ Nec ullamcorper sit amet risus. Molestie ac feugiat sed lectus vestibulum mattis
   );
 }
 
-// function Projects() {
-//   const { isPending, error, data } = useQuery({
-//     queryKey: ['repoData'],
-//     queryFn: () =>
-//       fetch("https://api.github.com/users/YAndrii27/repos").then(
-//         (res) => res.json(),
-//       ),
-//   })
-//   if (!isPending && !error) {
-//     const repos = data.map(repo => 
-//       <li key={repo.id}>{repo.name}</li>
-//     )
-//     return <><ul>{repos}</ul></>
-//   }
-// }
+export function WrapProjects() {
+  <QueryClientProvider client={queryClient}>
+    <Projects />
+  </QueryClientProvider>
+}
+
+function Projects() {
+  const { isPending, error, data } = useQuery({
+    queryKey: ['repoData'],
+    queryFn: () =>
+      fetch("https://api.github.com/users/{YAndrii27}/repos").then(
+        (res) => res.json(),
+      ),
+  })
+  if (!isPending && !error) {
+    const repos = data.map(repo => 
+      <li key={repo.id}>{repo.name}</li>
+    )
+    return <><ul>{repos}</ul></>
+  }
+}
 
 
 function Footer() {
