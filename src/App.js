@@ -1,17 +1,16 @@
 import React from 'react';
-import {
-  QueryClient,
-  QueryClientProvider,
-  // useQuery,
-} from '@tanstack/react-query'
+// import {
+//   QueryClient,
+//   QueryClientProvider,
+//   useQuery,
+// } from '@tanstack/react-query'
 import './App.css';
 
-const queryClient = new QueryClient()
+// const queryClient = new QueryClient()
 
 
 export default function App() {
   return (
-    <QueryClientProvider client={queryClient}>
     <div className="App" id='app'>
         <Menu />
         <div id='about-page'>
@@ -20,7 +19,6 @@ export default function App() {
         </div>
         <Footer />
     </div>
-    </QueryClientProvider>
   );
 }
 
