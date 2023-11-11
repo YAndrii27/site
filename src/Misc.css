@@ -1,0 +1,31 @@
+#menu {
+  display: flex;
+  align-items: center;
+  height: auto;
+  background: #a79da5;
+}
+
+.menu-element {
+  padding: 15px 4px 15px 10px; 
+}
+
+.menu-element:hover {
+  background-color: #beb3bc;
+  padding-top: 11px;
+  height: max-content;
+  transition: all .4s;
+}
+
+#footer {
+  position: absolute;
+  width: 100%;
+  bottom: 0px;
+  height: auto;
+  background-color: #a79da5;
+  vertical-align: bottom;
+  align-items: stretch;
+  overflow: hidden;
+  p {
+    vertical-align: top;
+  }
+}
