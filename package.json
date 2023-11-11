@@ -2,7 +2,6 @@
   "name": "my-website",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://YAndrii27.github.io/site",
   "dependencies": {
     "@tanstack/react-query": "^5.8.1",
     "@testing-library/jest-dom": "^5.17.0",
