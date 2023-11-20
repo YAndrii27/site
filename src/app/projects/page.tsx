@@ -1,7 +1,7 @@
 'use client'
 
 import { Menu, Footer } from "../misc";
-import Projects from "./ProjectsPage";
+import Projects from "./projectsPage";
 
 
 export default function ProjectsPage() {

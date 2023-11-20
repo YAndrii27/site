@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function AboutPage() {
     return (
         <div id='about-page' className="flex">
@@ -9,8 +11,8 @@ export default function AboutPage() {
   
   function Profile() {
     return (
-      <div id='profile' className="inline-flex pt-0 w-100 h-inherit bg-[#E0DDCF] items-stretch flex-col">
-        <img src='photo.jpg' alt='me' width={200} height={200} className="p-4 pb-0 flex self-center rounded-full" />
+      <div id='profile' className="inline-flex pt-0 w-[300px] h-inherit bg-[#E0DDCF] items-stretch flex-col">
+        <Image src="/photo.jpg" alt="me" width={200} height={200} className="flex self-center rounded-full" />
         <span id='name' className="flex self-center items-center">
           <p className="mr-2.5">{process.env.REACT_APP_FULL_NAME ?? process.env.REACT_APP_NAME}</p>
         </span>
