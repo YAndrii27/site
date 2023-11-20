@@ -43,7 +43,7 @@ function ProjectsList() {
     `https://api.github.com/users/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}/repos`,
     true
   );
-  const repos = data?.map(repo =>
+  const repos = data?.map((repo: any) =>
     !repo.fork && (
     <li key={repo.id} className="list-none pb-1.5">
         <a href="#about-project" onClick={() => {
@@ -61,12 +61,12 @@ function ProjectsList() {
   );
 }
 
-function ProjectDetails({ project }) {
+function ProjectDetails({ project }: {project: any} ) {
   const readme = useRequest(
     project.name,
     `https://raw.githubusercontent.com/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}/${project.name}/${project.default_branch}/README.md`
   );
-  const tags = project.topics.map(topic => (<span key={topic} className="self-center inline-flex mr-1.5 mt-1.5 p-1.5 pr-2 bg-[#a79da5] rounded-2xl content-center align-middle hover:bg-[#c0b4be] hover:cursor-default">{topic}</span>));
+  const tags = project.topics.map((topic: any) => (<span key={topic} className="self-center inline-flex mr-1.5 mt-1.5 p-1.5 pr-2 bg-[#a79da5] rounded-2xl content-center align-middle hover:bg-[#c0b4be] hover:cursor-default">{topic}</span>));
   return (
     <div id="about-project" className="inline-flex flex-col pl-4 bg-[#E0DDCF] flex-1 h-[calc(100vh-30px-50px)] max-h-[calc(100vh-30px-50px)] overflow-y-auto">
       <div id="project-name" className="prose"><h1>{project.name}</h1></div>
