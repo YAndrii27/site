@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a website-portfolio for me or anyone who find it as a good base.  
+  
+It uses Next.JS framework (based on the React.JS) as an JS framework and Tailwind CSS as an CSS framework and has been deployed to vercel.app.  
+I've also used some vector icons from the heroicons here.
+  
+It contains two pages: main page with information about me and the projects list.  
+Projects are fetched from the Github by official Github API. It fetches **only** public repositories.  
+  
+Project are published under the MIT license, so feel free to use and modify it in any way you want.
 
-## Getting Started
+## Installation
+For production build (faster and safer for use):
+```
+git clone https://github.com/YAndrii27/site
 
-First, run the development server:
+cd site
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Before running
+If you just want to see what it looks like you'll be fine to you skip this section. Otherwise:  
+1. Set the environment variables:  
+  NEXT_PUBLIC_USERNAME - username from your github and linkedin account.  
+  FULL_NAME or just NAME - your name to display on the 'about me' page.  
+  EMAIL - your email for show on the page.
+2. Put your photo in the ``public/`` folder under the name "photo". It should have .jpg extension and at least 200x200 pixels. I'd also recommend it to be a square.  
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+That's it. Site ready to be used as your own. 
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Running
+For production build (faster and safer):  
+```
+npm run build
+npm start
+```
+For development build (fast-reload and some devtools):
+```
+npm run dev
+```
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+By default site avialable on http://localhost:3000. You can change this by adding --hostname (or just -H) and --port (or just -p) options like that:  
+```
+npm start -- --hostname 127.0.0.1 --port 3001
+```
