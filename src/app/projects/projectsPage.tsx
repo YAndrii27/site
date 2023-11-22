@@ -55,7 +55,7 @@ function ProjectsList() {
   ));
   return (
     <>
-      <div className="pt-2 inline-flex bg-[#E0DDCF] items-stretch flex-col w-[200px] h-[calc(100vh-30px-30px)]">
+      <div className="pt-2 inline-flex bg-[#E0DDCF] items-stretch flex-col w-[160px] lg:w-[200px] h-[calc(100vh-30px-30px)]">
         <ul className="pl-2.5">{repos}</ul>
       </div>
       { projectDetails !== undefined && ( <ProjectDetails project={projectDetails} /> )}
@@ -78,7 +78,7 @@ function ProjectDetails({ project }: {project: any} ) {
       <div className="pt-4">
         {!readme && (<div className="flex flex-1 flex-row">{project.description}</div>)}
         <div>
-          <Markdown className="prose">
+          <Markdown className="prose overflow-x-visible">
             {(readme)}
           </Markdown>
         </div>

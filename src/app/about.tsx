@@ -13,7 +13,7 @@ export default function AboutPage() : JSX.Element {
 
 function Profile() : JSX.Element {
   return (
-    <div className="inline-flex pt-0 w-[300px] h-inherit bg-[#E0DDCF] items-stretch flex-col">
+    <div className="inline-flex pt-0 w-[160px] lg:w-[300px] h-inherit bg-[#E0DDCF] items-stretch flex-col">
       <div className="pt-4 self-center">
         <Image src="/photo.jpg" alt="me" width={200} height={200} className="flex rounded-full" />
       </div>
