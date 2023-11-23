@@ -16,7 +16,9 @@ export function Menu() : JSX.Element {
   function handleLoad() {
     if (localStorage.theme == "dark") {
       document.documentElement.classList.add("dark");
+      return;
     }
+    localStorage.theme = "light"
   }
   useEffect(handleLoad);
   return (
