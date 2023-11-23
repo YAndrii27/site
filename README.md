@@ -1,15 +1,14 @@
 This is a website-portfolio for me or anyone who find it as a good base.  
   
-It uses Next.JS framework (based on the React.JS) as an JS framework and Tailwind CSS as an CSS framework and has been deployed to vercel.app.  
-I've also used some vector icons from the heroicons here.
+It uses the [Next.JS](https://github.com/vercel/next.js) framework (based on the [React.JS](https://github.com/facebook/react)) framework and [Tailwind CSS](https://github.com/tailwindlabs/tailwindcss) framework and has been deployed to vercel.com.  
+I've also used some vector icons from the [heroicons](https://heroicons.com/) in this project.
   
-It contains two pages: main page with information about me and the projects list.  
-Projects are fetched from the Github by official Github API. It fetches **only** public repositories.  
+It contains two pages: main page with the information about me and the projects list.  
+Projects are fetched from the Github by Github API. It fetches **only** public repositories.  
   
 Project are published under the MIT license, so feel free to use and modify it in any way you want.
 
 ## Installation
-For production build (faster and safer for use):
 ```
 git clone https://github.com/YAndrii27/site
 
@@ -24,7 +23,8 @@ If you just want to see what it looks like you'll be fine to you skip this secti
   NEXT_PUBLIC_USERNAME - username from your github and linkedin account.  
   FULL_NAME or just NAME - your name to display on the 'about me' page.  
   EMAIL - your email for show on the page.
-2. Put your photo in the ``public/`` folder under the name "photo". It should have .jpg extension and at least 200x200 pixels. I'd also recommend it to be a square.  
+2. Put your photo in the ``public/`` folder under the name "photo". It should have a .jpg extension and size at least 200x200 pixels. I'd also recommend it to be a square.  
+3. Replace value of variable ``about`` in file ``/src/app/about.tsx`` with your text.
 
 That's it. Site ready to be used as your own. 
 
@@ -39,7 +39,7 @@ For development build (fast-reload and some devtools):
 npm run dev
 ```
 
-By default site avialable on http://localhost:3000. You can change this by adding --hostname (or just -H) and --port (or just -p) options like that:  
+By default site is avialable on http://localhost:3000. You can change this by adding --hostname (or just -H) and --port (or just -p) options like that:  
 ```
 npm start -- --hostname 127.0.0.1 --port 3001
 ```

@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import '../globals.css'
 
 export const metadata: Metadata = {
   title: 'Andrii Yashchishen :: portfolio',
@@ -15,5 +14,5 @@ export default function RootLayout({
     <html lang="en">
       <body>{children}</body>
     </html>
-  )
+  );
 }
