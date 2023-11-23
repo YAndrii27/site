@@ -13,7 +13,7 @@ export default function AboutPage() : JSX.Element {
 
 function Profile() : JSX.Element {
   return (
-    <div className="inline-flex pt-0 w-[160px] lg:w-[300px] h-inherit bg-[#E0DDCF] items-stretch flex-col">
+    <div className="inline-flex pt-0 w-[160px] lg:w-[300px] h-inherit bg-[#E0DDCF] items-stretch flex-col dark:bg-[#777a7a] dark:text-[#e8e6e3]">
       <div className="pt-4 self-center">
         <Image src="/photo.jpg" alt="me" width={200} height={200} className="flex rounded-full" />
       </div>
@@ -51,8 +51,8 @@ function About() : JSX.Element {
   <p>Overall, I&apos;m an ambitious problem-solver seeking a full-stack or back-end focused role that allows me to continue expanding my technical skillset. Especially eager about opportunities involving AI/ML technologies as that aligns with my long-term passion within the industry. Please feel free to view my portfolio and GitHub for examples of my work.</p>
   </>);
   return (
-    <div className="inline-flex flex-1 flex-col w-[calc(100%-400px)] h-[calc(100vh-theme(spacing.20))] items-stretch align-top bg-[#E0DDCF]">
-      <div className="p-4 overflow-y-auto">
+    <div className="inline-flex flex-1 flex-col w-[calc(100%-400px)] h-[calc(100vh-theme(spacing.20))] items-stretch align-top bg-[#E0DDCF] dark:bg-[#777a7a]">
+      <div className="p-4 overflow-y-auto dark:text-[#e8e6e3]">
         {about}
       </div>
     </div>
