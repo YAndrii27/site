@@ -55,7 +55,7 @@ function ProjectsList() {
   ));
   return (
     <>
-      <div className="pt-2 inline-flex bg-[#E0DDCF] items-stretch flex-col w-[160px] lg:w-[200px] h-[calc(100vh-30px-30px)] dark:bg-[#777a7a] dark:text-[#e8e6e3]">
+      <div className="pt-2 inline-flex bg-[#E0DDCF] items-stretch flex-col w-40 lg:w-50 h-[calc(100vh-30px-30px)] dark:bg-[#777a7a] dark:text-[#e8e6e3]">
         <ul className="pl-2.5">{repos}</ul>
       </div>
       { projectDetails !== undefined && ( <ProjectDetails project={projectDetails} /> )}
@@ -70,7 +70,7 @@ function ProjectDetails({ project }: {project: any} ) {
   );
   const tags = project.topics.map((topic: any) => (<span key={topic} className="self-center inline-flex mr-1.5 mt-1.5 p-1.5 pr-2 bg-[#a79da5] rounded-2xl content-center align-middle hover:bg-[#c0b4be] hover:cursor-default dark:bg-[#4d5356] dark:text-[#e8e6e3] dark:hover:bg-[#686868]">{topic}</span>));
   return (
-    <div className="inline-flex flex-col pl-4 bg-[#E0DDCF] flex-1 h-[calc(100vh-30px-50px)] max-h-[calc(100vh-30px-50px)] overflow-y-auto dark:bg-[#777a7a] dark:text-[#e8e6e3]">
+    <div className="inline-flex flex-col pl-4 bg-[#E0DDCF] flex-1 h-[calc(100vh-80px)] max-h-[calc(100vh-80px)] overflow-y-auto dark:bg-[#777a7a] dark:text-[#e8e6e3]">
       <div className="prose"><h1>{project.name}</h1></div>
       <div>
         {tags}
@@ -78,7 +78,7 @@ function ProjectDetails({ project }: {project: any} ) {
       <div className="pt-4">
         {!readme && (<div className="flex flex-1 flex-row dark:text-[#e8e6e3]">{project.description}</div>)}
         <div>
-          <Markdown className="prose prose-pre:max-w-[500px] prose-code:dark:text-[#dadada] prose-strong:dark:text-[#e8e6e3] max-w-full dark:text-[#e8e6e3]">
+          <Markdown className="prose dark:prose-invert">
             {readme}
           </Markdown>
         </div>

@@ -11,28 +11,30 @@ export default function AboutPage() : JSX.Element {
   );
 }
 
+function SocialLink({url, text}: {url: string, text: string}) : JSX.Element {
+  return (
+    <>
+      <span className="flex pt-2">
+        <a href={url} target="_blank" className="align-bottom pr-1">{text}</a>
+        <Image src="/link.svg" alt="open link" width="18" height="18" className="inline-flex" />
+      </span>
+    </>
+  );
+}
+
 function Profile() : JSX.Element {
   return (
-    <div className="inline-flex pt-0 w-[160px] lg:w-[300px] h-inherit bg-[#E0DDCF] items-stretch flex-col dark:bg-[#777a7a] dark:text-[#e8e6e3]">
+    <div className="inline-flex pt-0 w-40 lg:w-75 h-inherit bg-[#E0DDCF] items-stretch flex-col dark:bg-[#777a7a] dark:text-[#e8e6e3]">
       <div className="pt-4 self-center">
-        <Image src="/photo.jpg" alt="me" width={200} height={200} className="flex rounded-full" />
+        <Image src="/photo.jpg" alt="me" width="200" height="200" className="flex rounded-full" />
       </div>
       <span className="flex self-center items-center">
         <p className="mr-2.5">{FULL_NAME}</p>
       </span>
       <div className="flex flex-col self-center">
-        <span className="flex pt-2">
-          <a href={`https://github.com/${USERNAME}`} target="_blank" className="align-bottom pr-1">Github</a>
-          <Image src="/link.svg" alt="open link" width="18" height="18" className="inline-flex"/>
-        </span>
-        <span className="flex pt-2">
-          <a href={`https://linkedin.com/in/${USERNAME}`} target="_blank" className="align-bottom pr-1">LinkedIn</a>
-          <Image src="/link.svg" alt="open link" width="18" height="18" className="inline-flex"/>
-        </span>
-        <span className="flax pt-2">
-          <a href={`mailto:${EMAIL}`} className="align-middle pr-1">Email</a>
-          <Image src="/link.svg" alt="open link" width="18" height="18" className="inline-flex"/>
-        </span>
+        <SocialLink url={`https://github.com/${USERNAME}`} text="Github" />
+        <SocialLink url={`https://linkedin.com/in/${USERNAME}`} text="LinkedIn" />
+        <SocialLink url={`mailto:${EMAIL}`} text="Email" />
       </div>
     </div>
   );
@@ -58,4 +60,3 @@ function About() : JSX.Element {
     </div>
   );
 }
-  

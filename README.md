@@ -1,6 +1,6 @@
 This is a website-portfolio for me or anyone who find it as a good base.  
   
-It uses the [Next.JS](https://github.com/vercel/next.js) framework (based on the [React.JS](https://github.com/facebook/react)) framework and [Tailwind CSS](https://github.com/tailwindlabs/tailwindcss) framework and has been deployed to vercel.com.  
+It uses the [Next.JS](https://github.com/vercel/next.js) framework (based on the [React.JS](https://github.com/facebook/react)) and [Tailwind CSS](https://github.com/tailwindlabs/tailwindcss) framework and has been deployed to vercel.com.  
 I've also used some vector icons from the [heroicons](https://heroicons.com/) in this project.
   
 It contains two pages: main page with the information about me and the projects list.  
