@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Andrii Yashchishen :: portfolio',
+  title: 'Andrii Yashchishen :: projects',
   description: 'Portfolio website created with Next.JS (React.JS) and Tailwind CSS',
 }
 
@@ -12,7 +12,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className="h-screen bg-gray-50 dark:bg-gray-100">{children}</body>
     </html>
   );
 }

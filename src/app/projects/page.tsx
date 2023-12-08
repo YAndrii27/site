@@ -1,6 +1,6 @@
 'use client'
-
-import { Menu, Footer } from "../misc";
+import Menu from "@/components/menu";
+import Footer from "@/components/footer";
 import Projects from "./projectsPage";
 
 
