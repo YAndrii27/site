@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { TOKEN } from "@/app/config";
+// import { TOKEN } from "@/app/config";
 
 export default function useRequests(
   key: string,
@@ -7,19 +7,12 @@ export default function useRequests(
   returnJSON: boolean = false,
   auth: boolean = true
 ) : any {
-  if (auth) {
-    const params = {
-      headers: {
-        "Authorization": TOKEN
-      }
-    }
-  }
   const { isPending, error, data } = useQuery({
     queryKey: [key],
     queryFn: () =>
       fetch(
         url,
-        ).then(
+      ).then(
         (res) => {
           if (returnJSON) {
             return res.json();

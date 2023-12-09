@@ -9,7 +9,6 @@ import SocialLink from "@/components/socialLink";
 
 const queryClient = new QueryClient();
 
-
 export default function Projects() {
   return (
     <QueryClientProvider client={queryClient}>
@@ -59,14 +58,14 @@ function ProjectDetails({ project }: {project: any} ) {
   const readme = useRequests(
     project.name,
     `https://raw.githubusercontent.com/${USERNAME}/${project.name}/${project.default_branch}/README.md`,
-    undefined,
+    false,
     false
   );
   const tags = project.topics.map(
     (topic: any) => (
       <span key={topic} className="self-center inline-flex mr-1.5 mt-1.5 p-1.5 pr-2
-       bg-[#a79da5] rounded-2xl content-center align-middle hover:bg-[#c0b4be]
-       hover:cursor-default dark:bg-[#4d5356] dark:text-gray-25 dark:hover:bg-[#686868]">
+       bg-gray-100 rounded-2xl content-center align-middle hover:bg-gray-75
+       hover:cursor-default dark:bg-gray-175 dark:text-gray-25 dark:hover:bg-gray-150">
         {topic}
       </span>
     )

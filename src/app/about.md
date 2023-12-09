@@ -1,0 +1,7 @@
+Driven full-stack developer with over 1 year of professional experience building web applications from back-end to front-end. Core competencies include:  
+- Front-End Development: Created intuitive, responsive UIs for web apps using React.js. Leveraged Hooks and Context API for efficient state management. Implemented CSS animations and transitions.
+- Back-End Development: Developed and maintained scalable REST API servers in Node.js and Python Django/Flask/FastAPI. Modeled relational data and built PostgreSQL and MySQL/MariaDB databases optimized for performance. Containerized apps using Docker for easier deployment.
+- Programming Languages: Over 1 year total experience with Python, JavaScript, and TypeScript. Recently learned Rust and building personal projects focused on its speed and memory safety.
+- AI Integration: Passionate about ML and modern AI. Continuously experimenting by adding Natural Language Processing, voice interfaces, and predictive analytics to apps. Eager to take on roles centered on AI and human-computer interaction.  
+
+Overall, I'm an ambitious problem-solver seeking a full-stack or back-end focused role that allows me to continue expanding my technical skillset. Especially eager about opportunities involving AI/ML technologies as that aligns with my long-term passion within the industry. Please feel free to view my portfolio and GitHub for examples of my work.

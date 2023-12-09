@@ -12,7 +12,7 @@ export default function Menu() : JSX.Element {
   }
   useEffect(handleLoad);
   return (
-      <div className="flex self-stretch items-center h-10 bg-[#a79da5] dark:bg-[#4d5356]">
+      <div className="flex self-stretch items-center h-10 bg-gray-100 dark:bg-gray-175">
         <MenuElement url="/" text="ABOUT ME" />
         <MenuElement url="/projects" text="PROJECTS" />
         <ThemeSwitcher />
@@ -23,8 +23,8 @@ export default function Menu() : JSX.Element {
 function MenuElement({url, text}: {url: string, text: string}) {
   return (
     <>
-      <span className="flex pl-1.5 pr-1.5 h-10 hover:bg-[#beb3bc] hover:transition all duration-500
-      dark:text-gray-25 dark:hover:bg-[#404548]">
+      <span className="flex pl-1.5 pr-1.5 h-10 hover:bg-gray-75 hover:transition all duration-500
+      dark:text-gray-25 dark:hover:bg-gray-150">
           <a href={url} className="self-center">
             {text}
           </a>
@@ -50,8 +50,8 @@ function ThemeSwitcher() {
     width="30"
     height="30"
     alt="switch_theme"
-    className="absolute right-2 hover:bg-[#beb3bc] hover:cursor-pointer
-    hover:transition all duration-500 rounded-full dark:hover:bg-[#404548]"
+    className="absolute right-2 hover:bg-gray-75 hover:cursor-pointer
+    hover:transition all duration-500 rounded-full dark:hover:bg-gray-150"
     onClick={handleClick} />
   )
 }
