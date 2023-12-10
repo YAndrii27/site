@@ -66,18 +66,23 @@ function ProjectsList() {
     true,
     true,
   );
-  const repos = data?.map((repo: any) => !repo.fork && (
-    <li key={repo.id} className="pb-1.5">
-      <a
-        href="#about-project"
-        onClick={() => {
-          setProjectDetails(repo);
-        }}
-      >
-        {repo.name}
-      </a>
-    </li>
-  ));
+  let repos;
+  if (data) {
+    repos = data.map((repo: any) => !repo.fork && (
+      <li key={repo.id} className="pb-1.5">
+        <a
+          href="#about-project"
+          onClick={() => {
+            setProjectDetails(repo);
+          }}
+        >
+          {repo.name}
+        </a>
+      </li>
+    ));
+  } else {
+    repos = <p>List is loading...</p>;
+  }
   return (
     <>
       <div className="pt-2 flex items-stretch flex-col w-40 lg:w-50
