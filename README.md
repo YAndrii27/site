@@ -1,6 +1,6 @@
 This is a website-portfolio for me or anyone who find it as a good base.  
   
-It uses the [Next.JS](https://github.com/vercel/next.js) framework (based on the [React.JS](https://github.com/facebook/react)) framework and [Tailwind CSS](https://github.com/tailwindlabs/tailwindcss) framework and has been deployed to vercel.com.  
+It uses the [Next.JS](https://github.com/vercel/next.js) framework (based on the [React.JS](https://github.com/facebook/react)) and [Tailwind CSS](https://github.com/tailwindlabs/tailwindcss) framework and has been deployed to [Vercel](https://vercel.com).  
 I've also used some vector icons from the [heroicons](https://heroicons.com/) in this project.
   
 It contains two pages: main page with the information about me and the projects list.  
@@ -19,12 +19,11 @@ npm install
 
 ## Before running
 If you just want to see what it looks like you'll be fine to you skip this section. Otherwise:  
-1. Set the environment variables:  
-  NEXT_PUBLIC_USERNAME - username from your github and linkedin account.  
-  FULL_NAME or just NAME - your name to display on the 'about me' page.  
-  EMAIL - your email for show on the page.
-2. Put your photo in the ``public/`` folder under the name "photo". It should have a .jpg extension and size at least 200x200 pixels. I'd also recommend it to be a square.  
-3. Replace value of variable ``about`` in file ``/src/app/about.tsx`` with your text.
+1. Rename .env-example to .env.local:  
+```mv .env-example .env.local```  
+2. Open .env.local and set your values after the ``=`` sign.
+3. Put your photo in the ``public/`` folder under the name "photo". It should have a .jpg extension and size at least 200x200 pixels. I'd also recommend it to be a square or circle.  
+4. Replace text in in the file ``/src/app/about.md`` with your text.
 
 That's it. Site ready to be used as your own. 
 

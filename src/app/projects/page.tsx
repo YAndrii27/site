@@ -1,8 +1,10 @@
-'use client'
+'use client';
 
-import { Menu, Footer } from "../misc";
-import Projects from "./projectsPage";
+import React from 'react';
 
+import Menu from '@/components/menu';
+import Footer from '@/components/footer';
+import Projects from './projectsPage';
 
 export default function ProjectsPage() {
   return (

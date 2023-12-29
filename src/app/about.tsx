@@ -1,61 +1,55 @@
-import Image from "next/image";
+import Image from 'next/image';
+import Markdown from 'react-markdown';
+import React, { JSX } from 'react';
+import fs from 'fs';
 
-import { FULL_NAME, USERNAME, EMAIL } from "./config";
+import ExternalLinkStyled from '@/components/externalLinkStyled';
+import { FULL_NAME, USERNAME, EMAIL } from './config';
+
+function Profile() : JSX.Element {
+  return (
+    <div className="flex flex-col pt-0 lg:w-75 h-inherit items-stretch dark:text-gray-25">
+      <div className="pt-1 lg:pt-4 self-center">
+        <Image src="/photo.jpg" alt="me" width="200" height="200" className="rounded-full" />
+      </div>
+      <span className="self-center items-center">
+        <p className="mr-2.5">{FULL_NAME}</p>
+      </span>
+      <div className="self-center">
+        <ExternalLinkStyled url={`https://github.com/${USERNAME}`} text="Github" />
+        <ExternalLinkStyled url={`https://linkedin.com/in/${USERNAME}`} text="LinkedIn" />
+        <ExternalLinkStyled url={`mailto:${EMAIL}`} text="Email" />
+      </div>
+    </div>
+  );
+}
+
+function AboutText() {
+  const about: string = fs.readFileSync(`${process.cwd()}/src/app/about.md`).toString();
+  return (
+    <Markdown>
+      {about}
+    </Markdown>
+  );
+}
+
+function About() : JSX.Element {
+  return (
+    <div className="flex-1 flex-col w-full lg:w-about
+    items-stretch align-top h-exclude-navigation"
+    >
+      <div className="mb-6 pt-1 lg:pt-4 p-4 overflow-y-scroll dark:text-gray-25">
+        <AboutText />
+      </div>
+    </div>
+  );
+}
 
 export default function AboutPage() : JSX.Element {
   return (
-    <div className="flex">
+    <div className="flex flex-col lg:flex-row bg-gray-50 dark:bg-gray-125">
       <Profile />
       <About />
     </div>
   );
 }
-
-function Profile() : JSX.Element {
-  return (
-    <div className="inline-flex pt-0 w-[160px] lg:w-[300px] h-inherit bg-[#E0DDCF] items-stretch flex-col dark:bg-[#777a7a] dark:text-[#e8e6e3]">
-      <div className="pt-4 self-center">
-        <Image src="/photo.jpg" alt="me" width={200} height={200} className="flex rounded-full" />
-      </div>
-      <span className="flex self-center items-center">
-        <p className="mr-2.5">{FULL_NAME}</p>
-      </span>
-      <div className="flex flex-col self-center">
-        <span className="flex pt-2">
-          <a href={`https://github.com/${USERNAME}`} target="_blank" className="align-bottom pr-1">Github</a>
-          <Image src="/link.svg" alt="open link" width="18" height="18" className="inline-flex"/>
-        </span>
-        <span className="flex pt-2">
-          <a href={`https://linkedin.com/in/${USERNAME}`} target="_blank" className="align-bottom pr-1">LinkedIn</a>
-          <Image src="/link.svg" alt="open link" width="18" height="18" className="inline-flex"/>
-        </span>
-        <span className="flax pt-2">
-          <a href={`mailto:${EMAIL}`} className="align-middle pr-1">Email</a>
-          <Image src="/link.svg" alt="open link" width="18" height="18" className="inline-flex"/>
-        </span>
-      </div>
-    </div>
-  );
-}
-
-function About() : JSX.Element {
-  const about: JSX.Element = (<>
-  <p>Driven full-stack developer with over 1 year of professional experience
-  building web applications from back-end to front-end. Core competencies include:</p>
-  <ul>
-    <li>Front-End Development: Created intuitive, responsive UIs for web apps using React.js. Leveraged Hooks and Context API for efficient state management. Implemented CSS animations and transitions.</li>
-    <li>Back-End Development: Developed and maintained scalable REST API servers in Node.js and Python Django/Flask/FastAPI. Modeled relational data and built PostgreSQL and MySQL/MariaDB databases optimized for performance. Containerized apps using Docker for easier deployment.</li>
-    <li>Programming Languages: Over 1 year total experience with Python, JavaScript, and TypeScript. Recently learned Rust and building personal projects focused on its speed and memory safety.</li>
-    <li>AI Integration: Passionate about ML and modern AI. Continuously experimenting by adding Natural Language Processing, voice interfaces, and predictive analytics to apps. Eager to take on roles centered on AI and human-computer interaction.</li>
-  </ul>
-  <p>Overall, I&apos;m an ambitious problem-solver seeking a full-stack or back-end focused role that allows me to continue expanding my technical skillset. Especially eager about opportunities involving AI/ML technologies as that aligns with my long-term passion within the industry. Please feel free to view my portfolio and GitHub for examples of my work.</p>
-  </>);
-  return (
-    <div className="inline-flex flex-1 flex-col w-[calc(100%-400px)] h-[calc(100vh-theme(spacing.20))] items-stretch align-top bg-[#E0DDCF] dark:bg-[#777a7a]">
-      <div className="p-4 overflow-y-auto dark:text-[#e8e6e3]">
-        {about}
-      </div>
-    </div>
-  );
-}
-  
