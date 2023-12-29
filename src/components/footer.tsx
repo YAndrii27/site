@@ -1,5 +1,5 @@
 import React, { JSX } from 'react';
-import SocialLink from './socialLink';
+import SocialLink from './externalLinkStyled';
 
 export default function Footer() : JSX.Element {
   return (

@@ -2,10 +2,7 @@
   "extends": ["next/core-web-vitals", "airbnb"],
   "rules": {
     "react/jsx-filename-extension": [1, { "extensions": [".tsx", ".jsx"] }],
-    "import/extensions": [
-      "warn",
-      "never"
-    ],
+    "import/extensions": "off",
     "import/no-extraneous-dependencies": [
       "error",
       {
@@ -14,6 +11,7 @@
         "peerDependencies": true
       }
     ],
-    "react/jsx-no-bind": "off"
+    "react/jsx-no-bind": "off",
+    "prefer-destructuring": "off"
   }
 }

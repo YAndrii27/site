@@ -13,7 +13,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="h-screen bg-gray-50 dark:bg-gray-100">{children}</body>
+      <body className="h-screen bg-gray-50 dark:bg-gray-125">{children}</body>
     </html>
   );
 }
