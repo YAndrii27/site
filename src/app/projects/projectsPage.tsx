@@ -76,6 +76,7 @@ function ProjectsList() {
   const [projectDetails, setProjectDetails] = useState(undefined);
   let content;
   if (data) {
+    // eslint-disable-next-line array-callback-return
     content = data.map((repo: any) => {
       if (!repo.fork && repo.name !== USERNAME) {
         return (
