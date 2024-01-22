@@ -33,7 +33,7 @@ function ThemeSwitcher() {
       height="30"
       alt="switch_theme"
       className="absolute right-2 hover:bg-gray-75 hover:cursor-pointer
-    hover:transition all duration-500 rounded-full dark:hover:bg-gray-150"
+    hover:transition all duration-500 rounded-full dark:hover:bg-gray-150 z-50"
       onClick={handleClick}
     />
   );
@@ -50,8 +50,8 @@ export default function Menu() : JSX.Element {
   useEffect(handleLoad);
   return (
     <div className="flex self-stretch items-center h-10 bg-gray-100 dark:bg-gray-175">
-      <MenuElement url="/" text="ABOUT ME" />
-      <MenuElement url="/projects" text="PROJECTS" />
+      <MenuElement url="/#about" text="ABOUT ME" />
+      <MenuElement url="/#projects" text="PROJECTS" />
       <ThemeSwitcher />
     </div>
   );

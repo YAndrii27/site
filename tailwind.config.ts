@@ -26,13 +26,13 @@ const config: Config = {
       },
       height: {
         inherit: 'inherit',
-        'exclude-navigation': 'calc(100vh - 80px)',
+        'exclude-navigation': 'calc(100vh - 40px)',
       },
       maxHeight: {
-        'exclude-navigation': 'calc(100vh - 80px)',
+        'exclude-navigation': 'calc(100vh - 40px)',
       },
-      weigth: {
-        about: 'calc(100 - 300px)',
+      weight: {
+        about: 'calc(100vh - 300px)',
       },
     },
   },
