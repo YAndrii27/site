@@ -30,7 +30,7 @@ function Profile() : JSX.Element {
         />
         <SocialMediaLink
           image="social-media.svg"
-          link={`https://linkedin.com/${USERNAME}`}
+          link={`https://linkedin.com/in/${USERNAME}`}
           name="LinkedIn"
         />
       </div>
