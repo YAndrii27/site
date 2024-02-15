@@ -4,7 +4,7 @@ import React, { JSX } from 'react';
 import fs from 'fs';
 
 import SocialMediaLink from '@/components/socialMediaLink';
-import Projects from './projectsPage';
+import Projects from './projects';
 
 import { FULL_NAME, USERNAME, EMAIL } from './config';
 
@@ -72,7 +72,7 @@ function AboutAndProjects() : JSX.Element {
 
 export default function AboutPage() : JSX.Element {
   return (
-    <div className="flex flex-col lg:flex-row bg-gray-50 dark:bg-gray-125">
+    <div className="flex flex-col lg:flex-row">
       <Profile />
       <AboutAndProjects />
     </div>

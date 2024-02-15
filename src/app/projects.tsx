@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, JSX, MouseEventHandler } from 'react';
+import React, { useState, JSX } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import Markdown from 'react-markdown';
@@ -34,14 +34,12 @@ function ProjectDetails({
   branch,
   description,
   url,
-  closeCB,
 }: {
   name: string,
   branch: string,
   description: string,
   url: string,
-  closeCB: MouseEventHandler,
-}) {
+}) : JSX.Element {
   const readme = useRequests(
     name,
     `https://raw.githubusercontent.com/${USERNAME}/${name}/${branch}/README.md`,
@@ -49,20 +47,10 @@ function ProjectDetails({
     false,
   );
   return (
-    <div className="flex flex-col self-center h-96 max-h-96 w-[500px] overflow-y-auto overflow-x-auto
-    dark:text-gray-25 z-50 bg-gray-50 dark:bg-gray-125 bg-opacity-90 dark:bg-opacity-80
+    <div className="flex flex-col self-center h-96 max-h-96 w-125 overflow-y-auto overflow-x-auto
+    dark:text-gray-25 z-40 bg-opacity-90 dark:bg-opacity-80
     rounded-2xl border-2 border-solid border-black hide-scrollbar"
     >
-      <div className="flex h-fit w-full justify-end">
-        <button
-          type="button"
-          onClick={closeCB}
-          className="flex bg-gray-100 dark:bg-gray-175 h-7 w-7
-          rounded-full justify-center align-middle border-2 border-t-0 border-r-0 border-solid border-black"
-        >
-          X
-        </button>
-      </div>
       <div className="flex mt-2 prose dark:prose-invert w-full justify-center border-b-2 border-dashed border-black">
         <h1 className="mb-2">{name}</h1>
       </div>
@@ -97,7 +85,7 @@ function Project({
   description: string,
   topics: string[],
   url: string,
-}) {
+}) : JSX.Element {
   const [showDetails, setShowDetails] = useState(false);
 
   function handleClick() {
@@ -132,13 +120,16 @@ function Project({
         </div>
       </div>
       {showDetails && (
-        <Modal content={<ProjectDetails name={title} branch="master" description={description} url={url} closeCB={handleClick} />} />
+        <Modal
+          content={<ProjectDetails name={title} branch="master" description={description} url={url} />}
+          closeCB={handleClick}
+        />
       )}
     </>
   );
 }
 
-function ProjectLoading() {
+function ProjectLoading() : JSX.Element {
   return (
     <div className="flex flex-col p-2 mb-2 border-2 border-solid border-black rounded-3xl">
       <h1 className="flex self-center text-xl font-bold"> </h1>
@@ -148,7 +139,7 @@ function ProjectLoading() {
   );
 }
 
-function ProjectsList() {
+function ProjectsList() : JSX.Element {
   /*
   * Representation of the projects list
   */
@@ -188,7 +179,7 @@ function ProjectsList() {
   );
 }
 
-export default function Projects() {
+export default function Projects() : JSX.Element {
   /*
   * Main component which represents page
   */
@@ -196,7 +187,7 @@ export default function Projects() {
     <QueryClientProvider client={queryClient}>
       <ReactQueryDevtools initialIsOpen={false} />
       <div>
-        <div className="flex flex-col lg:flex-row bg-gray-50 dark:bg-gray-125">
+        <div className="flex flex-col lg:flex-row">
           <ProjectsList />
         </div>
       </div>

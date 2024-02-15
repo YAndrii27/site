@@ -23,6 +23,7 @@ const config: Config = {
       spacing: {
         50: '200px',
         75: '300px',
+        125: '500px',
       },
       height: {
         inherit: 'inherit',
