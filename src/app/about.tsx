@@ -3,28 +3,42 @@ import Markdown from 'react-markdown';
 import React, { JSX } from 'react';
 import fs from 'fs';
 
-import ExternalLinkStyled from '@/components/externalLinkStyled';
+import SocialMediaLink from '@/components/socialMediaLink';
+import Projects from './projects';
+
 import { FULL_NAME, USERNAME, EMAIL } from './config';
 
 function Profile() : JSX.Element {
   return (
-    <div className="flex flex-col pt-0 lg:w-75 h-inherit items-stretch dark:text-gray-25">
-      <div className="pt-1 lg:pt-4 self-center">
+    <div className="flex flex-col pt-0 lg:w-75 h-inherit dark:text-gray-25">
+      <div className="pt-1 lg:pt-4 self-center justify-center items-center">
         <Image src="/photo.jpg" alt="me" width="200" height="200" className="rounded-full" />
       </div>
-      <span className="self-center items-center">
-        <p className="mr-2.5">{FULL_NAME}</p>
+      <span className="self-center items-center justify-center">
+        <h1 className="text-xl">{FULL_NAME}</h1>
       </span>
-      <div className="self-center">
-        <ExternalLinkStyled url={`https://github.com/${USERNAME}`} text="Github" />
-        <ExternalLinkStyled url={`https://linkedin.com/in/${USERNAME}`} text="LinkedIn" />
-        <ExternalLinkStyled url={`mailto:${EMAIL}`} text="Email" />
+      <div className="flex self-center flex-row lg:flex-col items-center justify-center">
+        <SocialMediaLink
+          image="email.svg"
+          link={`mailto:${EMAIL}`}
+          name="Email"
+        />
+        <SocialMediaLink
+          image="code-icon.svg"
+          link={`https://github.com/${USERNAME}`}
+          name="Github"
+        />
+        <SocialMediaLink
+          image="social-media.svg"
+          link={`https://linkedin.com/in/${USERNAME}`}
+          name="LinkedIn"
+        />
       </div>
     </div>
   );
 }
 
-function AboutText() {
+function AboutText() : JSX.Element {
   const about: string = fs.readFileSync(`${process.cwd()}/src/app/about.md`).toString();
   return (
     <Markdown>
@@ -35,21 +49,32 @@ function AboutText() {
 
 function About() : JSX.Element {
   return (
-    <div className="flex-1 flex-col w-full lg:w-about
-    items-stretch align-top h-exclude-navigation"
+    <div
+      id="about"
+      className="flex-1 flex-col w-full lg:w-about
+      items-stretch align-top"
     >
-      <div className="mb-6 pt-1 lg:pt-4 p-4 overflow-y-scroll dark:text-gray-25">
+      <div className="mb-6 pt-1 lg:pt-4 p-4 overflow-y-auto dark:text-gray-25">
         <AboutText />
       </div>
     </div>
   );
 }
 
+function AboutAndProjects() : JSX.Element {
+  return (
+    <div className="lg:overflow-auto h-exclude-navigation w-full lg:w-about">
+      <About />
+      <Projects />
+    </div>
+  );
+}
+
 export default function AboutPage() : JSX.Element {
   return (
-    <div className="flex flex-col lg:flex-row bg-gray-50 dark:bg-gray-125">
+    <div className="flex flex-col lg:flex-row">
       <Profile />
-      <About />
+      <AboutAndProjects />
     </div>
   );
 }

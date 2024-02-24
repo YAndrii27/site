@@ -8,8 +8,8 @@ export default function useRequests(
   auth: boolean = true,
 ) : any {
   const headers = new Headers();
-  if (auth) {
-    headers.append('Authorization', `Bearer ${TOKEN}`);
+  if (auth && TOKEN) {
+    headers.set('Authorization', `Bearer ${TOKEN}`);
   }
   const { isPending, error, data } = useQuery({
     queryKey: [key],
@@ -20,10 +20,10 @@ export default function useRequests(
       },
     ).then(
       (res) => {
-        if (returnJSON) {
-          return res.json();
+        if (res.ok) {
+          return returnJSON ? res.json() : res.text();
         }
-        return res.text();
+        throw new Error('Network response was not ok');
       },
     ),
   });

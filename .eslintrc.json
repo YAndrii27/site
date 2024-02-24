@@ -12,6 +12,7 @@
       }
     ],
     "react/jsx-no-bind": "off",
-    "prefer-destructuring": "off"
+    "prefer-destructuring": "off",
+    "jsx-a11y/control-has-associated-label": "off"
   }
 }

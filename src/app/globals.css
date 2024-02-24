@@ -19,3 +19,18 @@
 body {
   color: rgb(var(--foreground-rgb));
 }
+
+ 
+
+.hide-scrollbar {
+  /* Internet Explorer and Microsoft Edge */
+  -ms-overflow-style: none;
+
+  /* Firefox */
+  scrollbar-width: none;
+
+  /* Chrome, Safari, and Opera */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
