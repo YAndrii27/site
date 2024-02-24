@@ -36,11 +36,11 @@ function ThemeSwitcher() {
   }
 
   return (
-    <div className="fixed right-0 flex self-center h-fit w-fit z-50">
+    <div className="flex self-center h-fit w-fit z-50">
       <motion.div
         layout
         transition={spring}
-        className={`fixed right-0 flex self-center h-fit w-16 border-2 border-solid border-black rounded-full ${isDarkMode ? 'justify-start' : 'justify-end'}`}
+        className={`flex self-center h-fit w-16 border-2 border-solid border-black rounded-full ${isDarkMode ? 'justify-start' : 'justify-end'}`}
       >
         <Image
           src={`${isDarkMode ? '/dark-theme.svg' : '/light-theme.svg'}`}
@@ -61,6 +61,7 @@ export default function Menu() : JSX.Element {
     <nav className="flex self-stretch items-center align-middle h-10 bg-gray-100 dark:bg-gray-175">
       <MenuElement url="/#about" text="ABOUT ME" />
       <MenuElement url="/#projects" text="PROJECTS" />
+      <div className="flex flex-1" />
       <ThemeSwitcher />
     </nav>
   );

@@ -10,7 +10,7 @@ import { FULL_NAME, USERNAME, EMAIL } from './config';
 
 function Profile() : JSX.Element {
   return (
-    <div className="flex flex-col pt-0 lg:w-75 h-inherit items-stretch dark:text-gray-25">
+    <div className="flex flex-col pt-0 lg:w-75 h-inherit dark:text-gray-25">
       <div className="pt-1 lg:pt-4 self-center justify-center items-center">
         <Image src="/photo.jpg" alt="me" width="200" height="200" className="rounded-full" />
       </div>
@@ -54,7 +54,7 @@ function About() : JSX.Element {
       className="flex-1 flex-col w-full lg:w-about
       items-stretch align-top h-exclude-navigation"
     >
-      <div className="mb-6 pt-1 lg:pt-4 p-4 overflow-y-scroll dark:text-gray-25">
+      <div className="mb-6 pt-1 lg:pt-4 p-4 overflow-y-auto dark:text-gray-25">
         <AboutText />
       </div>
     </div>
@@ -63,7 +63,7 @@ function About() : JSX.Element {
 
 function AboutAndProjects() : JSX.Element {
   return (
-    <div className="overflow-auto h-exclude-navigation w-full lg:w-about">
+    <div className="lg:overflow-auto h-exclude-navigation w-full lg:w-about">
       <About />
       <Projects />
     </div>

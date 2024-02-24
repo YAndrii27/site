@@ -1,15 +1,13 @@
 'use client';
 
-import React, { useState, JSX } from 'react';
+import React, { useState, JSX, MouseEventHandler } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
-import Markdown from 'react-markdown';
 import LinesEllipsis from 'react-lines-ellipsis';
 
 import useRequests from '@/lib/useRequests';
 import clearTopics from '@/lib/removeNonUniqueTopic';
 
-import ExternalLinkStyled from '@/components/externalLinkStyled';
 import Modal from '@/components/modal';
 
 import { USERNAME } from './config';
@@ -34,11 +32,13 @@ function ProjectDetails({
   branch,
   description,
   url,
+  closeCB,
 }: {
   name: string,
   branch: string,
   description: string,
   url: string,
+  closeCB: MouseEventHandler,
 }) : JSX.Element {
   const readme = useRequests(
     name,
@@ -47,31 +47,7 @@ function ProjectDetails({
     false,
   );
   return (
-    <div className="flex flex-col self-center h-96 max-h-96 w-125 overflow-y-auto overflow-x-auto
-    dark:text-gray-25 z-40 bg-opacity-90 dark:bg-opacity-80
-    rounded-2xl border-2 border-solid border-black hide-scrollbar"
-    >
-      <div className="flex mt-2 prose dark:prose-invert w-full justify-center border-b-2 border-dashed border-black">
-        <h1 className="mb-2">{name}</h1>
-      </div>
-      <div className="m-3">
-        <div className="pt-4">
-          {!readme && (
-          <div className="flex flex-1 flex-row dark:text-gray-25">
-            {description}
-          </div>
-          )}
-          <div>
-            <Markdown className="prose dark:prose-invert">
-              {readme}
-            </Markdown>
-          </div>
-          <div className="mt-2 mb-14">
-            <ExternalLinkStyled url={url} text="Source code" />
-          </div>
-        </div>
-      </div>
-    </div>
+    <Modal name={name} description={readme || description} url={url} closeCB={closeCB} />
   );
 }
 
@@ -120,8 +96,11 @@ function Project({
         </div>
       </div>
       {showDetails && (
-        <Modal
-          content={<ProjectDetails name={title} branch="master" description={description} url={url} />}
+        <ProjectDetails
+          name={title}
+          description={description}
+          branch="master"
+          url={url}
           closeCB={handleClick}
         />
       )}
@@ -130,11 +109,12 @@ function Project({
 }
 
 function ProjectLoading() : JSX.Element {
+  // TODO: Make something better here
   return (
-    <div className="flex flex-col p-2 mb-2 border-2 border-solid border-black rounded-3xl">
-      <h1 className="flex self-center text-xl font-bold"> </h1>
-      <span className="flex font-mono"> </span>
-      <div className="border-t-2 border-dashed border-black"> </div>
+    <div className="flex flex-col w-full p-2 mb-2 border-2 border-solid border-black rounded-3xl animate-pulse">
+      <h1 className="flex self-center opacity-0"> Placeholder </h1>
+      <span className="flex w-full opacity-0"> Placeholder </span>
+      <div className="border-t-2 border-dashed border-black w-full text-opacity-0"> </div>
     </div>
   );
 }
