@@ -22,7 +22,7 @@ export default function Modal({
         animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0, scale: 0.8, transition: { duration: 1.6 } }}
       >
-        <div className="fixed bottom-0 top-0 right-0 left-0 w-screen h-screen
+        <div className="fixed bottom-0 top-0 right-0 left-0 p-2 lg:p-0 w-screen h-screen
           flex justify-center align-middle bg-black bg-opacity-60"
         >
           <div className="flex flex-col self-center h-96 max-h-96 w-125 overflow-y-auto overflow-x-auto

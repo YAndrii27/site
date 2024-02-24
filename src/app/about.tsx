@@ -52,7 +52,7 @@ function About() : JSX.Element {
     <div
       id="about"
       className="flex-1 flex-col w-full lg:w-about
-      items-stretch align-top h-exclude-navigation"
+      items-stretch align-top"
     >
       <div className="mb-6 pt-1 lg:pt-4 p-4 overflow-y-auto dark:text-gray-25">
         <AboutText />
