@@ -1,7 +1,8 @@
-Driven full-stack developer with over 1 year of professional experience building web applications from back-end to front-end. Core competencies include:  
-- Front-End Development: Created intuitive, responsive UIs for web apps using React.js. Leveraged Hooks and Context API for efficient state management. Implemented CSS animations and transitions.
-- Back-End Development: Developed and maintained scalable REST API servers in Node.js and Python Django/Flask/FastAPI. Modeled relational data and built PostgreSQL, MySQL/MariaDB and MongoDB databases optimized for performance. Containerized apps using Docker for easier deployment.
-- Programming Languages: Over 1 year total experience with Python, JavaScript, and TypeScript. Recently learned Rust and building personal projects focused on its speed and memory safety.
-- AI Integration: Passionate about ML and modern AI. Eager to take on roles centered on AI and human-computer interaction.  
-
-Overall, I'm an ambitious problem-solver seeking a full-stack or back-end focused role that allows me to continue expanding my technical skillset. Especially eager about opportunities involving AI/ML technologies as that aligns with my long-term passion within the industry. Please feel free to view my portfolio and GitHub for examples of my work.
+Hi. I'm Andrii (also referred to as Andrew and Andy). I'm passionate developer who loves learning new things. My main areas are Web and Mobile Development. Programming languages I use are:
+  
+- Java  
+- JavaScript / TypeScript (including React.js, Angular.js, Node.js) 
+- Python (including Django framework, Flask, FastAPI) 
+  
+I learned all the languages above by myself. Now, I'm also learning more about those in my Bachelor degree course.  
+  

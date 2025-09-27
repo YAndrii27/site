@@ -1,12 +1,12 @@
 This is a website-portfolio for me or anyone who find it as a good base.  
   
-It uses the [Next.JS](https://github.com/vercel/next.js) framework (based on the [React.JS](https://github.com/facebook/react)) and [Tailwind CSS](https://github.com/tailwindlabs/tailwindcss) framework and has been deployed to [Vercel](https://vercel.com).  
+It uses the [Next.JS](https://github.com/vercel/next.js) framework (based on the [React.JS](https://github.com/facebook/react)) and [Tailwind CSS](https://github.com/tailwindlabs/tailwindcss) framework.  
 I've also used some vector icons from the [heroicons](https://heroicons.com/) in this project.
   
-It contains two pages: main page with the information about me and the projects list.  
+It contains two sections: main page with my personal profile and the projects list.  
 Projects are fetched from the Github by Github API. It fetches **only** public repositories.  
   
-Project are published under the MIT license, so feel free to use and modify it in any way you want.
+Project is published under the MIT license, so feel free to use and modify it in any way you want.
 
 ## Installation
 ```
@@ -18,7 +18,7 @@ npm install
 ```
 
 ## Before running
-If you just want to see what it looks like you'll be fine to you skip this section. Otherwise:  
+If you just want to see what it looks like you'll be fine to just skip this section. Otherwise:  
 1. Rename .env-example to .env.local:  
 ```mv .env-example .env.local```  
 2. Open .env.local and set your values after the ``=`` sign.
