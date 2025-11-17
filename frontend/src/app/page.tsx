@@ -1,6 +1,5 @@
 import React, { JSX } from 'react';
 import Menu from '@/components/menu';
-// import Footer from '@/components/footer';
 import AboutPage from './about';
 
 export default function Home() : JSX.Element {
@@ -8,7 +7,6 @@ export default function Home() : JSX.Element {
     <>
       <Menu />
       <AboutPage />
-      {/* <Footer /> */}
     </>
   );
 }

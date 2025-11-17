@@ -19,7 +19,7 @@ function ProjectTag({ topic }: {topic: string}) : JSX.Element {
     <span
       key={topic}
       className="self-center inline-flex mr-1.5 mt-1.5 p-1.5 pr-2
-      bg-gray-100 rounded-2xl content-center align-middle hover:bg-gray-75
+      bg-gray-75 rounded-2xl content-center align-middle hover:bg-gray-100
       hover:cursor-default dark:bg-gray-175 dark:text-gray-25 dark:hover:bg-gray-150"
     >
       {topic}

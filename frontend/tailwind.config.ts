@@ -13,7 +13,7 @@ const config: Config = {
         gray: {
           25: '#e8e6e3',
           50: '#E0DDCF',
-          75: '#c0b4be',
+          75: '#c7c0c6ff',
           100: '#8a8a8a',
           125: '#777a7a',
           150: '#686868',

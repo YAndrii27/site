@@ -7,7 +7,7 @@ import { motion, spring } from 'framer-motion';
 
 function MenuElement({ url, text }: {url: string, text: string}) {
   return (
-    <span className="flex pl-1.5 pr-1.5 h-10 hover:bg-gray-75 hover:transition all duration-500
+    <span className="flex pl-1.5 pr-1.5 h-10 hover:bg-gray-100 hover:transition all duration-500
       dark:text-gray-25 dark:hover:bg-gray-150"
     >
       <a href={url} className="self-center">
@@ -47,8 +47,8 @@ function ThemeSwitcher() {
           width="30"
           height="30"
           alt="switch_theme"
-          className="flex right-2 hover:bg-gray-75 hover:cursor-pointer
-        hover:transition all duration-500 rounded-full dark:hover:bg-gray-150"
+          className="flex right-2 hover:bg-gray-175 hover:cursor-pointer
+        hover:transition all duration-500 rounded-full dark:hover:bg-gray-75"
           onClick={handleClick}
         />
       </motion.div>
@@ -58,7 +58,7 @@ function ThemeSwitcher() {
 
 export default function Menu() : JSX.Element {
   return (
-    <nav className="flex self-stretch items-center align-middle h-10 bg-gray-100 dark:bg-gray-175">
+    <nav className="flex self-stretch items-center align-middle h-10 bg-gray-75 dark:bg-gray-175">
       <MenuElement url="/#about" text="ABOUT ME" />
       <MenuElement url="/#projects" text="PROJECTS" />
       <div className="flex flex-1" />

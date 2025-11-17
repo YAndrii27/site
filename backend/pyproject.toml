@@ -1,0 +1,19 @@
+[project]
+name = "backend"
+version = "0.1.0"
+description = "Backend for my website"
+authors = [
+    {name = "Andrii Yashchishen",email = "AndriiYashchishen@protonmail.com"}
+]
+license = {text = "MIT"}
+requires-python = ">=3.14"
+dependencies = [
+    "quart (>=0.20.0,<0.21.0)"
+]
+
+[tool.poetry]
+package-mode = false
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"

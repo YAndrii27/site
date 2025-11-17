@@ -27,7 +27,7 @@ export default function Modal({
         >
           <div className="flex flex-col self-center h-96 max-h-96 w-125 overflow-y-auto overflow-x-auto
     dark:text-gray-25 z-40 bg-opacity-70 dark:bg-opacity-70 rounded-2xl border-2 border-solid border-black
-      hide-scrollbar bg-gray-50 dark:bg-gray-125"
+      hide-scrollbar bg-gray-25 dark:bg-gray-125"
           >
             <div className="flex flex-row mt-2 h-10 w-full justify-center border-b-2 border-dashed border-black">
               <div className="flex flex-1" />
