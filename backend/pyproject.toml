@@ -3,12 +3,16 @@ name = "backend"
 version = "0.1.0"
 description = "Backend for my website"
 authors = [
-    {name = "Andrii Yashchishen",email = "AndriiYashchishen@protonmail.com"}
+    {name = "Andrii Yashchishen", email = "AndriiYashchishen@protonmail.com"}
 ]
 license = {text = "MIT"}
-requires-python = ">=3.14"
+requires-python = ">=3.11,<3.14"
 dependencies = [
-    "quart (>=0.20.0,<0.21.0)"
+    "fastapi (>=0.104.0,<0.105.0)",
+    "uvicorn[standard] (>=0.24.0,<0.25.0)",
+    "python-dotenv (>=1.0.0,<2.0.0)",
+    "pymongo (>=4.17.0,<5.0.0)",
+    "beanie (>=2.1.0,<3.0.0)"
 ]
 
 [tool.poetry]
