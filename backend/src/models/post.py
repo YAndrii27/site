@@ -10,12 +10,21 @@ if TYPE_CHECKING:
 class Post(Document):
     """Blog post document"""
 
-    title: Indexed(str, unique=True) = Field(..., max_length=255)
-    slug: Indexed(str, unique=True) = Field(..., max_length=255)
+    title: Indexed(
+        str,
+        unique=True
+    ) = Field(..., max_length=255)  # type: ignore
+    slug: Indexed(
+        str,
+        unique=True
+    ) = Field(..., max_length=255)  # type: ignore
     excerpt: str = Field(..., max_length=500)
     published: bool = Field(default=False)
     created_at: datetime = Field(default=datetime.now())
-    updated_at: datetime = Field(default=datetime.now(), onupdate=datetime.now())
+    updated_at: datetime = Field(
+        default=datetime.now(),
+        onupdate=datetime.now()
+    )
 
     # Reference to category
     category: Link['Category']

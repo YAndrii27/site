@@ -9,9 +9,9 @@ if TYPE_CHECKING:
 
 class Category(Document):
     """Blog category document"""
-    
-    name: Indexed(str, unique=True) = Field(max_length=100)
-    slug: Indexed(str, unique=True) = Field(max_length=100)
+
+    name: Indexed(str, unique=True) = Field(max_length=100)  # type: ignore
+    slug: Indexed(str, unique=True) = Field(max_length=100)  # type: ignore
     description: str = Field(max_length=500)
 
     # Reference to posts in the category
