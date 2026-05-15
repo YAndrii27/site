@@ -42,3 +42,7 @@ By default site is avialable on http://localhost:3000. You can change this by ad
 ```
 npm start -- --hostname 127.0.0.1 --port 3001
 ```
+
+## License
+
+All the code in this repository is licensed under the MIT license

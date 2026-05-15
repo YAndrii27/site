@@ -1,0 +1,41 @@
+services:
+  blog-api:
+    build: ./backend
+    container_name: blog-api
+    restart: unless-stopped
+    networks:
+      - blog-network
+    depends_on:
+      mongo:
+        condition: service_healthy
+
+  frontend:
+    build: ./frontend
+    depends_on:
+      - blog-api
+      - mongo
+    container_name: frontend
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
+    networks:
+      - blog-network
+
+  mongo:
+    image: mongo
+    command: ["mongod", "--quiet"]
+    container_name: mongo
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+    networks:
+      - blog-network
+    healthcheck:
+        test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+        interval: 10s
+        timeout: 10s
+        retries: 5
+
+networks:
+  blog-network:
