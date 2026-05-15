@@ -1,4 +1,5 @@
 from fastapi import APIRouter, HTTPException
+
 from src.models import Category
 from src.schemas import Category as CategorySchema
 
@@ -9,7 +10,7 @@ router = APIRouter()
 async def get_categories() -> list[str]:
     """Get all categories."""
     categories: list[Category] = await Category.find_all().to_list()
-    return categories
+    return [category.model_dump_json() for category in categories]
 
 
 @router.get('/{slug}')
@@ -20,14 +21,15 @@ async def get_category(slug: str) -> str:
     if not category:
         raise HTTPException(status_code=404, detail='Category not found')
 
-    return category
+    return category.model_dump_json()
 
 
 @router.post('')
 async def create_category(
-    category: CategorySchema
+    category: CategorySchema,
 ):
     """Create a new category"""
+
     if await Category.find_one(Category.slug == category.slug):
         raise HTTPException(
             status_code=409,
@@ -42,7 +44,7 @@ async def create_category(
 
     await created_category.save()
 
-    return created_category.to_json()
+    return created_category.model_dump_json()
 
 
 @router.put('/{category_id}')
@@ -50,9 +52,10 @@ async def update_category(
     category_id: int,
     name: str | None = None,
     slug: str | None = None,
-    description: str | None = None
+    description: str | None = None,
 ):
     """Update a category"""
+
     category = await Category.find_one(Category.id == category_id)
 
     if not category:
@@ -67,12 +70,15 @@ async def update_category(
 
     await category.save()
 
-    return category.to_json()
+    return category.model_dump_json()
 
 
 @router.delete('/{category_id}')
-async def delete_category(category_id: int):
+async def delete_category(
+    category_id: int,
+):
     """Delete a category"""
+
     category = await Category.find_one(Category.id == category_id)
 
     if not category:

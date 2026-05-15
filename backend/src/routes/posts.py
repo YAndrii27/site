@@ -1,7 +1,6 @@
-from typing import Optional
 from fastapi import APIRouter, HTTPException, Query
+
 from src.models.post import Post
-from src.models.category import Category
 from src.schemas import Post as PostSchema
 
 router = APIRouter()
@@ -17,7 +16,7 @@ async def get_posts(
     posts: list[Post] = []
     if category_id:
         posts = await Post.find(
-            Post.published == True,
+            Post.published == True,  # noqa: E712
             Post.category.id == category_id,
         )\
             .skip((page - 1) * per_page)\
@@ -25,7 +24,7 @@ async def get_posts(
             .to_list()
     else:
         posts = await Post.find(
-            Post.published == True
+            Post.published == True  # noqa: E712
         )\
             .skip((page - 1) * per_page)\
             .limit(per_page)\
@@ -40,7 +39,10 @@ async def get_posts(
 @router.get('/{slug}')
 async def get_post(slug: str):
     """Get a single post by slug."""
-    post = await Post.find_one(Post.slug == slug, Post.published == True)
+    post = await Post.find_one(
+        Post.slug == slug,
+        Post.published == True  # noqa: E712
+    )
 
     if not post:
         raise HTTPException(status_code=404, detail='Post not found')
@@ -50,9 +52,10 @@ async def get_post(slug: str):
 
 @router.post('')
 async def create_post(
-    post: PostSchema
+    post: PostSchema,
 ):
     """Create a new post"""
+
     # Check if post already exists
     if await Post.find_one(Post.slug == post.slug):
         raise HTTPException(
@@ -63,7 +66,6 @@ async def create_post(
     created_post = Post(
         title=post.title,
         slug=post.slug,
-        content=post.content,
         excerpt=post.excerpt,
         published=post.published,
         category=post.category,
@@ -73,20 +75,20 @@ async def create_post(
 
     await created_post.insert()
 
-    return created_post.to_json()
+    return created_post.model_dump_json()
 
 
 @router.put('/{post_id}')
 async def update_post(
     post_id: int,
-    title: Optional[str] = None,
-    slug: Optional[str] = None,
-    content: Optional[str] = None,
-    excerpt: Optional[str] = None,
-    published: Optional[bool] = None,
-    category: Optional[int] = None
+    title: str | None = None,
+    slug: str | None = None,
+    excerpt: str | None = None,
+    published: bool | None = None,
+    category: int | None = None,
 ):
     """Update a post"""
+
     post = await Post.find_one(Post.id == post_id)
 
     if not post:
@@ -97,8 +99,6 @@ async def update_post(
         post.title = title
     if slug is not None:
         post.slug = slug
-    if content is not None:
-        post.content = content
     if excerpt is not None:
         post.excerpt = excerpt
     if published is not None:
@@ -108,12 +108,15 @@ async def update_post(
 
     await post.save()
 
-    return post
+    return post.model_dump_json()
 
 
 @router.delete('/{post_id}')
-async def delete_post(post_id: int):
+async def delete_post(
+    post_id: int,
+):
     """Delete a post"""
+
     post = await Post.find_one(Post.id == post_id)
 
     if not post:
