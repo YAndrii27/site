@@ -31,6 +31,8 @@ class Config(BaseSettings):
     JWT_ALGORITHM: str = 'HS256'
     JWT_EXPIRATION_HOURS: int = 24
 
+    INTERACTIVE_MODE: bool = True
+
     model_config = SettingsConfigDict(
         env_file=".env",
         extra="ignore",

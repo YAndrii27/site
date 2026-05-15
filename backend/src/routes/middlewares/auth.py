@@ -12,7 +12,7 @@ class AuthMiddleware(BaseHTTPMiddleware):
 
     def is_required(self, request: Request) -> bool:
         if request.method == "GET"\
-              or request.url.path.startswith("/api/admin"):
+              or request.url.path.startswith("/api/admin/login"):
             return False
         return True
 
@@ -65,7 +65,7 @@ class AuthMiddleware(BaseHTTPMiddleware):
                 headers={"WWW-Authenticate": "Bearer"},
             )
 
-        async for db in get_db():
+        for db in get_db():
             admin = db.query(Admin).filter(
                 Admin.username == token_data.get("username")
             ).first()

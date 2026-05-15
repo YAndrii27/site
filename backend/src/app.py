@@ -5,16 +5,21 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from src.utils.database import init_db
+from src.utils.sqlalchemy_db import init_sqlite_db
+from src.utils.first_time_admin_setup import setup_if_needed
 from src.config import config as Config
 from src.routes import register_routes
 from src.routes.middlewares.auth import AuthMiddleware
 
 logger = logging.getLogger(__name__)
-logger.basicConfig(level=logging.WARN)
+logging.basicConfig(level=logging.WARN)
 
 
 def create_app() -> FastAPI:
     """Create and configure the FastAPI application."""
+
+    init_sqlite_db()
+    setup_if_needed()
 
     app: FastAPI = FastAPI(
         title="Blog API",
