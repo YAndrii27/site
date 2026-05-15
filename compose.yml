@@ -6,7 +6,8 @@ services:
     networks:
       - blog-network
     depends_on:
-      - mongo
+      mongo:
+        condition: service_healthy
 
   frontend:
     build: ./frontend
@@ -22,6 +23,7 @@ services:
 
   mongo:
     image: mongo
+    command: ["mongod", "--quiet"]
     container_name: mongo
     restart: unless-stopped
     environment:
@@ -29,6 +31,11 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: example
     networks:
       - blog-network
+    healthcheck:
+        test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+        interval: 10s
+        timeout: 10s
+        retries: 5
 
 networks:
   blog-network:
