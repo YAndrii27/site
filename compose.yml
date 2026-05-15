@@ -6,7 +6,7 @@ services:
     networks:
       - blog-network
     environment:
-      INITIAL_ADMIN_USERNAME: admin # Admin account that is only accessible on first run
+      INITIAL_ADMIN_USERNAME: admin # Admin account that is only accessible until new account is created
       INITIAL_ADMIN_PASSWORD: admin
     depends_on:
       mongo:
